@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script src=“http://code.jquery.com/jquery-1.10.1.min.js”>
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#loaddata").click(function () {
+                txtname = $("#txtname").val();
+                txtlocation = $("#txtlocation").val();
+                $.get("get_test.php", { name: txtname, location: txtlocation }, function (ajaxresult) {
+                    $("#getrequest").html(ajaxresult);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="getrequest"></div>
+    Enter Name: <input type="text" id="txtname"><br />
+    Enter Location: <input type="text" id="txtlocation"><br />
+    <button id="loaddata">Click to send request to get_test.php</button>
+</body>
+
+</html>
